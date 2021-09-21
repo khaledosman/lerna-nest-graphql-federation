@@ -8,15 +8,6 @@
     "tsConfigPath": "apps/gateway-service/tsconfig.app.json"
   },
   "projects": {
-    "author-service": {
-      "type": "application",
-      "root": "apps/author-service",
-      "entryFile": "main",
-      "sourceRoot": "apps/author-service/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/author-service/tsconfig.app.json"
-      }
-    },
     "comment-service": {
       "type": "application",
       "root": "apps/comment-service",
