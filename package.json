@@ -28,6 +28,7 @@
     "@types/node": "^16.4.0",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
+    "concurrently": "^6.2.1",
     "husky": "^4.3.0",
     "lerna": "^4.0.0",
     "nodemon": "^2.0.12",

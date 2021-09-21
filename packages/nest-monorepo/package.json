@@ -9,6 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
+    "start-all": "concurrently \"nest start comment-service --watch\" \"nest start article-service --watch\" && nest start gateway-service --watch",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "@apollo/federation": "^0.32.0",
+    "@apollo/gateway": "^0.41.0",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/graphql": "^9.0.4",

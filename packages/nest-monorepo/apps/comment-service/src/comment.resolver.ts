@@ -6,9 +6,10 @@ import {
   ResolveField,
   Resolver,
   ID,
+  ResolveReference,
 } from '@nestjs/graphql';
 import { Comment, CommentDocument } from './comment.schema';
-import { Article } from './Article.schema';
+import { Article } from './Article.entity';
 
 @Resolver((of) => Comment)
 export class CommentsResolver {
@@ -28,8 +29,13 @@ export class CommentsResolver {
   async articles(@Parent() comment: CommentDocument) {
     const { _id } = comment;
     return {
-      _id,
+      id: _id,
       _typename: 'Article',
     };
+  }
+
+  @ResolveReference()
+  resolveReference(reference: { __typename: string; id: string }) {
+    return this.commentsService.findOneById(reference.id);
   }
 }

@@ -1,4 +1,6 @@
-import { GraphQLModule } from '@nestjs/graphql';
+import { ArticleResolver } from './article.resolver';
+import { Article } from './Article.entity';
+import { GraphQLFederationModule } from '@nestjs/graphql';
 import { CommentSchema, Comment } from './comment.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Module } from '@nestjs/common';
@@ -15,12 +17,15 @@ import { CommentsResolver } from './comment.resolver';
       dbName: 'comments',
     }),
     MongooseModule.forFeature([{ name: Comment.name, schema: CommentSchema }]),
-    GraphQLModule.forRoot({
+    GraphQLFederationModule.forRoot({
       autoSchemaFile: true,
-      mockEntireSchema: true,
+      // mockEntireSchema: true,
+      buildSchemaOptions: {
+        orphanedTypes: [Article],
+      },
     }),
   ],
   controllers: [],
-  providers: [CommentService, CommentsResolver],
+  providers: [CommentService, CommentsResolver, ArticleResolver],
 })
 export class CommentServiceModule {}

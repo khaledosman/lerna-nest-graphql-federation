@@ -8,9 +8,6 @@ export class CommentService {
   constructor(
     @InjectModel(Comment.name) private commentModel: Model<CommentDocument>,
   ) {}
-  getHello(): string {
-    return 'Hello World!';
-  }
 
   findOneById(id: string) {
     return this.commentModel.findById(id).lean();
@@ -18,5 +15,9 @@ export class CommentService {
 
   find(filter: any = {}) {
     return this.commentModel.find(filter).lean();
+  }
+
+  getCommentsForArticle(articleId: string) {
+    return this.commentModel.find({ article: articleId });
   }
 }

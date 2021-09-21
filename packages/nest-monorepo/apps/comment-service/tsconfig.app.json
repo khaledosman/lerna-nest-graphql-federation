@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "sourceMap": true,
     "declaration": false,
     "outDir": "../../dist/apps/comment-service"
   },

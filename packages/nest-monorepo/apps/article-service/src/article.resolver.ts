@@ -1,3 +1,4 @@
+import { Comment } from './comment.entity';
 import { ArticleService } from './article-service.service';
 import {
   Args,
@@ -6,8 +7,10 @@ import {
   ResolveField,
   Resolver,
   ID,
+  ResolveReference,
 } from '@nestjs/graphql';
 import { Article, ArticleDocument } from './article.schema';
+import { LeanDocument, Query as MongoQuery } from 'mongoose';
 
 @Resolver((of) => Article)
 export class ArticleResolver {
@@ -23,12 +26,16 @@ export class ArticleResolver {
     return this.articlesService.getArticles();
   }
 
-  // @ResolveField((returns) => [Comment])
-  // async comments(@Parent() article: ArticleDocument) {
-  //   const { _id } = article;
-  //   return {
-  //     _id,
-  //     _typename: 'Article',
-  //   };
-  // }
+  @ResolveField((of) => [Comment])
+  comments(@Parent() article: Article) {
+    return { __typename: 'Comment', id: article._id };
+  }
+
+  @ResolveReference()
+  resolveReference(reference: {
+    __typename: string;
+    id: string;
+  }): MongoQuery<LeanDocument<ArticleDocument>, ArticleDocument> {
+    return this.articlesService.getArticle(reference.id);
+  }
 }
