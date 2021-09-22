@@ -19,28 +19,29 @@ export class Comment {
   // authorId: string;
 
   @Prop({ type: Types.ObjectId })
-  @Field(() => ID)
+  // @Field(() => ID)
   articleId: string;
 
   @Prop()
   @Field(() => String)
   commentContent: string;
 
-  @Field((type) => [ID])
+  // @Field((type) => [ID])
+  // @Prop({
+  //   ref: Comment.name,
+  //   type: Types.ObjectId,
+  // })
+  // commentIds: string;
+
   @Prop({
     ref: Comment.name,
     type: Types.ObjectId,
   })
-  commentIds: string;
-
   @Field((type) => [Comment], {
     nullable: true,
     defaultValue: [],
   })
   comments: Comment[];
-
-  // @Field((type) => Article)
-  // article: Article;
 
   @Field(() => Date)
   createdAt: string;

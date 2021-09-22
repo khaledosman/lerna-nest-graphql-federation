@@ -15,5 +15,5 @@ export class CreateCommentDto {
     nullable: true,
     defaultValue: [],
   })
-  commentIds: string;
+  commentIds?: string;
 }

@@ -13,7 +13,4 @@ export class CreateArticleDto {
 
   // @Field(() => ID, { nullable: true })
   // authorId: string;
-
-  @Field((type) => [ID], { nullable: true, defaultValue: [] })
-  commentIds: string[];
 }

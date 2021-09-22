@@ -9,16 +9,19 @@ export class ArticleService {
   constructor(
     @InjectModel(Article.name) private articleModel: Model<ArticleDocument>,
   ) {}
+
   getArticles() {
     return this.articleModel.find({}).lean();
   }
+
   getArticle(id: string) {
     return this.articleModel.findById(id).lean();
   }
 
   getArticlesForComment(commentId: string) {
-    return this.articleModel.find({ commentIds: commentId });
+    return this.articleModel.find({ comments: commentId });
   }
+
   createArticle(payload: CreateArticleDto) {
     return this.articleModel.create(payload);
   }

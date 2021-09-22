@@ -1,4 +1,3 @@
-import { Comment } from './external/comment.entity';
 import { ArticleService } from './article-service.service';
 import {
   Args,

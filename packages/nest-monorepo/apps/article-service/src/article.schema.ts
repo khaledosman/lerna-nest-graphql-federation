@@ -30,12 +30,12 @@ export class Article {
   // @Field(() => ID)
   // authorId: string;
 
-  @Prop({ type: Types.ObjectId })
-  @Field((type) => [ID])
-  commentIds: string[];
+  // @Field((type) => [ID])
+  // commentIds: string[];
 
+  @Prop({ type: Types.ObjectId })
   // @Field((type) => [Comment])
-  // comments: Comment[];
+  comments: string[];
 
   @Field(() => Date)
   createdAt: string;

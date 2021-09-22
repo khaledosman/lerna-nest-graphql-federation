@@ -36,11 +36,11 @@ export class CommentsResolver {
   }
 
   // @ResolveField((returns) => [Article])
-  // async article(@Parent() comment: CommentDocument) {
+  // article(@Parent() comment: CommentDocument) {
   //   const { _id } = comment;
   //   return {
   //     id: _id,
-  //     _typename: 'Article',
+  //     __typename: 'Article',
   //   };
   // }
 

@@ -21,6 +21,7 @@ export class CommentService {
   getCommentsForArticle(articleId: string) {
     return this.commentModel.find({ articleId: articleId });
   }
+
   create(payload: CreateCommentDto) {
     return this.commentModel.create(payload);
   }
