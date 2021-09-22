@@ -1,5 +1,5 @@
-import { ArticleResolver } from './article.resolver';
-import { Article } from './Article.entity';
+import { ArticleResolver } from './external/article.resolver';
+import { Article } from './external/article.entity';
 import { GraphQLFederationModule } from '@nestjs/graphql';
 import { CommentSchema, Comment } from './comment.schema';
 import { MongooseModule } from '@nestjs/mongoose';

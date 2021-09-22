@@ -2,6 +2,7 @@ import { Article, ArticleDocument } from './article.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CreateArticleDto } from './dto/create-article.dto';
 
 @Injectable()
 export class ArticleService {
@@ -16,6 +17,9 @@ export class ArticleService {
   }
 
   getArticlesForComment(commentId: string) {
-    return this.articleModel.find({ comments: commentId });
+    return this.articleModel.find({ commentIds: commentId });
+  }
+  createArticle(payload: CreateArticleDto) {
+    return this.articleModel.create(payload);
   }
 }

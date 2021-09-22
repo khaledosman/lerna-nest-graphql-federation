@@ -1,5 +1,5 @@
-import { CommentResolver } from './comment.resolver';
-import { Comment } from './comment.entity';
+import { CommentResolver } from './external/comment.resolver';
+import { Comment } from './external/comment.entity';
 import { ArticleResolver } from './article.resolver';
 import { Article, ArticleSchema } from './article.schema';
 import { MongooseModule } from '@nestjs/mongoose';

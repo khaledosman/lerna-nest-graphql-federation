@@ -1,5 +1,5 @@
 import { Field, ObjectType, ID, Directive } from '@nestjs/graphql';
-import { Comment } from './comment.schema';
+import { Comment } from '../comment.schema';
 
 @ObjectType()
 @Directive('@extends')

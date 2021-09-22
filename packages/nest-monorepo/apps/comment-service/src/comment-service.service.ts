@@ -2,6 +2,7 @@ import { CommentDocument, Comment } from './comment.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CreateCommentDto } from './dto/create-comment.dto';
 
 @Injectable()
 export class CommentService {
@@ -18,6 +19,9 @@ export class CommentService {
   }
 
   getCommentsForArticle(articleId: string) {
-    return this.commentModel.find({ article: articleId });
+    return this.commentModel.find({ articleId: articleId });
+  }
+  create(payload: CreateCommentDto) {
+    return this.commentModel.create(payload);
   }
 }

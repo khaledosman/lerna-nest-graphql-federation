@@ -1,5 +1,5 @@
-import { CommentService } from './comment-service.service';
-import { Article } from './Article.entity';
+import { CommentService } from '../comment-service.service';
+import { Article } from './article.entity';
 import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
 
 @Resolver((of) => Article)

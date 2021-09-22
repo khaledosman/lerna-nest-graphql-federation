@@ -1,4 +1,4 @@
-import { Article } from './article.schema';
+import { Article } from '../article.schema';
 import { Directive, Field, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
@@ -10,5 +10,5 @@ export class Comment {
   _id: string;
 
   @Field((type) => [Article])
-  articles: Article[];
+  article: Article[];
 }

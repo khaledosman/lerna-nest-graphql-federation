@@ -1,3 +1,4 @@
+import { Article } from './external/article.entity';
 import { Field, ObjectType, ID, Directive } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
@@ -13,16 +14,16 @@ export class Comment {
   @Field((type) => ID)
   _id: string;
 
+  // @Prop({ type: Types.ObjectId })
+  // @Field(() => ID)
+  // authorId: string;
+
   @Prop({ type: Types.ObjectId })
   @Field(() => ID)
-  author: string;
-
-  @Prop({ type: Types.ObjectId })
-  // @Field(() => ID)
-  article: string;
+  articleId: string;
 
   @Prop()
-  @Field()
+  @Field(() => String)
   commentContent: string;
 
   @Field((type) => [ID])
@@ -30,7 +31,16 @@ export class Comment {
     ref: Comment.name,
     type: Types.ObjectId,
   })
-  comments: string;
+  commentIds: string;
+
+  @Field((type) => [Comment], {
+    nullable: true,
+    defaultValue: [],
+  })
+  comments: Comment[];
+
+  // @Field((type) => Article)
+  // article: Article;
 
   @Field(() => Date)
   createdAt: string;
