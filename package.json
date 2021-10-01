@@ -45,5 +45,7 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "kafkajs": "^1.15.0"
+  }
 }
